@@ -1,0 +1,44 @@
+version: '3'
+services:
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    environment:
+      - VITE_API_URL=${VITE_API_URL}
+      - VITE_APP_OPENAI_API_KEY=${VITE_APP_OPENAI_API_KEY}
+      - VITE_APP_OPENAI_API_URL=${VITE_APP_OPENAI_API_URL}
+      - VITE_APP_WEBSOCKET_SERVER=${VITE_APP_WEBSOCKET_SERVER}
+
+  backend:
+    build: ./server
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./server:/usr/src/app
+    environment:
+      - MONGO_URI=${MONGO_URI}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_BUCKET_NAME=${AWS_BUCKET_NAME}
+      - JWT_SECRET=${JWT_SECRET}
+      - PORT=${PORT}
+      - CORS_ORIGIN=${CORS_ORIGIN}
+    depends_on:
+      - mongodb
+    # command: ["/wait-for.sh", "mongodb:27017", "--", "node", "app.js"]
+
+
+  frontend:
+    build: ./client
+    ports:
+      - "80:80"
+    volumes:
+      - ./client:/app
+
+  
+
+volumes:
+  mongo-data:
