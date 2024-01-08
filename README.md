@@ -1,5 +1,7 @@
 # Full-Stack Twitter Clone
 
+- View site here: http://a097d2bf016ff48f1905caeb5be817d6-924583360.us-east-2.elb.amazonaws.com
+  
 ## Overview
 
 This Full-Stack Twitter Clone is a sophisticated replication of Twitter's core functionalities, designed to provide a real-time and interactive social media experience. Built using the MERN stack (MongoDB, Express.js, React, Node.js), this project demonstrates a comprehensive understanding of full-stack development principles, from designing a dynamic user interface to implementing a robust backend system. The application is containerized using Docker, ensuring consistent environments across different stages of development, and is deployed on AWS EKS to leverage cloud computing benefits.
