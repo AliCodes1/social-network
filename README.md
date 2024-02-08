@@ -1,6 +1,7 @@
 # Full-Stack Twitter Clone
 
 - View site here: http://a097d2bf016ff48f1905caeb5be817d6-924583360.us-east-2.elb.amazonaws.com
+- The site may or may not work depending on my AWS bill 😄
   
 ## Overview
 
